@@ -1,4 +1,4 @@
 # data-structures-and-algorithms
 
 ## TOC
-* [Array reverse]()
+* [Array reverse](challenges/arrayReverse/array-reverse.js)
