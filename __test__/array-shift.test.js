@@ -12,6 +12,10 @@ describe('array insert shift', () => {
     expect(insertShiftArray([2,3,4,6,8], 5)).toEqual([2,3,4,5,6,8]);
   });
 
+  it('shifts into an single-element array', () => {
+    expect(insertShiftArray([11], 55)).toEqual([11,55]);
+  });
+
   it('shifts into an empty array', () => {
     expect(insertShiftArray([], 55)).toEqual([55]);
   });
