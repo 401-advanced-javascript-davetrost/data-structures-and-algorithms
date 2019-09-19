@@ -7,7 +7,6 @@
  */
 function binarySearch(sortedArr, ele) {
   const middleIndex = Math.floor(sortedArr.length / 2);
-  console.log(sortedArr, sortedArr[middleIndex], ele);
   if(ele === sortedArr[middleIndex]) return middleIndex;
   if(sortedArr.length > 2 && ele > sortedArr[middleIndex]) {
     const newArr = []; 
@@ -16,7 +15,7 @@ function binarySearch(sortedArr, ele) {
     }
     const newSearch = binarySearch(newArr, ele);
     if(newSearch === -1) return -1;
-    return middleIndex + newSearch;
+    return middleIndex + 1 + newSearch;
   }
   if(sortedArr.length > 1 && ele < sortedArr[middleIndex]) {
     const newArr = [];
