@@ -18,7 +18,16 @@ for(let i = 0; i < largeArraySize; i++) {
 */
 let hrStart;
 let hrEnd;
-let hrMilliseconds;
+let hrMilliseconds = 0;
+
+hrStart = process.hrtime();
+for(let i = 0; i < 1000; i++) {
+  const searchEle = Math.floor(Math.random() * smallArraySize);
+  binarySearch(smallArray, searchEle);
+}
+hrEnd = process.hrtime(hrStart);
+hrMilliseconds = hrEnd[0] * 1000 + hrEnd[1] / 1e6;
+console.log(`IGNORE THIS OUTPUT <<< ${hrMilliseconds.toPrecision(6)} >>>`);
 
 hrStart = process.hrtime();
 for(let i = 0; i < 1000; i++) {
