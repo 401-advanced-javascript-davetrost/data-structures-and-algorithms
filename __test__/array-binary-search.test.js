@@ -2,7 +2,7 @@
 
 let { binarySearch } = require('../challenges/arrayBinarySearch/array-binary-search');
 
-describe('array binary search', () => {
+describe.skip('array binary search', () => {
 
   it('finds an search key in the array', () => {
     expect(binarySearch([4,8,15,16,23,42], 4)).toBe(0);
