@@ -3,9 +3,14 @@
 let { LinkedList } = require('../challenges/linkedList/linked-list');
 let linkedList;
 
+const value0 = 'zero';
 const value1 = 'one';
+const value1p5 = 'one-point-five';
 const value2 = 'two';
+const value2p5 = 'two-point-five';
 const value3 = 'three';
+const value4 = 'four';
+const value5 = 'five';
 
 describe('Linked List', () => {
 
@@ -45,4 +50,49 @@ describe('Linked List', () => {
     expect(linkedList.toString()).toBe([value3, value2, value1].join(', '));
   });
 
+  it('Can be reset by replacing the reference with a new call to the constructor function', () => {
+    linkedList = new LinkedList();
+    expect(linkedList.head).toBe(null);
+  });
+    
+  it('Can append to an empty list', () => {
+    linkedList.insert(value1);
+    expect(linkedList.head.value).toBe(value1);
+  });
+
+  it('Can append to the end of the linked list', () => {
+    linkedList.append(value2);
+    expect(linkedList.head.next.value).toBe(value2);
+  });
+
+  it('Can append multiple values to the end of the linked list', () => {
+    linkedList.append(value3);
+    linkedList.append(value4);
+    expect(linkedList.head.next.next.value).toBe(value3);
+    expect(linkedList.head.next.next.next.value).toBe(value4);
+  });
+
+  it('Can insert a node before a node located in the middle of the list', () => {
+    expect(linkedList.head.next.value).toBe(value2);
+    linkedList.insertBefore(value2, value1p5);
+    expect(linkedList.head.next.value).toBe(value1p5);
+  });
+
+  it('Can insert a node before the first node of the list', () => {
+    expect(linkedList.head.value).toBe(value1);
+    linkedList.insertBefore(value1, value0);
+    expect(linkedList.head.value).toBe(value0);
+  });
+
+  it('Can insert a node after a node located in the middle of the list', () => {
+    expect(linkedList.head.next.next.next.next.value).toBe(value3);
+    linkedList.insertAfter(value2, value2p5);
+    expect(linkedList.head.next.next.next.next.value).toBe(value2p5);
+  });
+
+  it('Can insert a node after the last node', () => {
+    linkedList.insertAfter(value4, value5);
+    expect(linkedList.head.next.next.next.next.next.next.next.value).toBe(value5);
+  });
+  
 });
