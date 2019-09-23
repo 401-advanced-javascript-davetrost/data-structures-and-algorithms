@@ -84,6 +84,29 @@ class LinkedList {
   }
 
   /**
+   * delete an element from the list. The node to be deleted is the first with a value matching the parameter 'val'
+   * @param {*} val
+   * @returns {boolean}
+   * @function delete
+   */
+  delete(val) {
+    if(this.head.value === val) {
+      this.head = this.head.next === null ? null : this.head.next;
+      return true;
+    }
+
+    let current = this.head;
+    while(current.next !== null) {
+      if(current.next.value === val) {
+        current.next = current.next.next;
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
+
+  /**
    * determine if an element exists in the list (at any position)
    * @param {*} val
    * @returns {boolean}

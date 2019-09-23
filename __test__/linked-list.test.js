@@ -98,4 +98,35 @@ describe('Linked List', () => {
     expect(linkedList.head.next.next.next.next.next.next.next.value).toBe(value5);
   });
   
+  it('Can delete a node with the given value', () => {
+    expect(linkedList.head.next.next.next.next.next.value).toBe(value3);
+    expect(linkedList.head.next.next.next.next.next.next.value).toBe(value4);
+    expect(linkedList.head.next.next.next.next.next.next.next.value).toBe(value5);
+    linkedList.delete(value4);
+    expect(linkedList.head.next.next.next.next.next.value).toBe(value3);
+    expect(linkedList.head.next.next.next.next.next.next.value).toBe(value5);
+  });
+  
+  it('Can delete the last node', () => {
+    expect(linkedList.head.next.next.next.next.next.next.value).toBe(value5);
+    linkedList.delete(value5);
+    expect(linkedList.head.next.next.next.next.next.next).toBe(null);
+  });
+  
+  it('Can delete all the nodes', () => {
+    expect(linkedList.head.value).toBe(value0);
+    linkedList.delete(value0);
+    expect(linkedList.head.value).toBe(value1);
+    linkedList.delete(value1);
+    expect(linkedList.head.value).toBe(value1p5);
+    linkedList.delete(value1p5);
+    expect(linkedList.head.value).toBe(value2);
+    linkedList.delete(value2);
+    expect(linkedList.head.value).toBe(value2p5);
+    linkedList.delete(value2p5);
+    expect(linkedList.head.value).toBe(value3);
+    linkedList.delete(value3);
+    expect(linkedList.head).toBe(null);
+  });
+  
 });
