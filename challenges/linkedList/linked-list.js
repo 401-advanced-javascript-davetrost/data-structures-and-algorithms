@@ -11,66 +11,88 @@ class LinkedList {
   
   /**
    * insert an element into the list at the head position
-   * @param {*} ele
+   * @param {*} val
    * @function insert
    */
-  insert(ele) {
-    const newHead = new ListNode(ele);
-    newHead.next = this.head;
-    this.head = newHead;
-    return newHead;
+  insert(val) {
+    const newNode = new ListNode(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    return newNode;
   }
 
   /**
    * append an element at the tail of the list
-   * @param {*} ele
+   * @param {*} val
    * @function append
    */
-  append(ele) {
-    if(this.head === null) return this.insert(ele);
+  append(val) {
+    if(this.head === null) return this.insert(val);
     
     let current = this.head;
     while(current.next !== null) {
       current = current.next;
     }
-    const newTail = new ListNode(ele);
-    newTail.next = null;
-    current.next = newTail;
+    const newNode = new ListNode(val);
+    newNode.next = null;
+    current.next = newNode;
     return false;
   }
 
   /**
    * insert an element immediately before the first node with a value matching the parameter 'val'
-   * @param {*} ele
    * @param {*} val
+   * @param {*} newVal
    * @returns {boolean}
-   * @function insertAfter
+   * @function insertBefore
    */
-  insertAfter(ele, val) {
-    let current = this.head;
-    while(current !== null) {
-      if(current.value === ele) {
+  insertBefore(val, newVal) {
+    if(this.head.value === val) return this.insert(newVal);
 
+    let current = this.head;
+    while(current.next !== null) {
+      if(current.next.value === val) {
+        const newNode = new ListNode(newVal);
+        newNode.next = current.next;
+        current.next = newNode;
         return true;
       }
       current = current.next;
     }
-    const newHead = new ListNode(ele);
-    newHead.next = this.head;
-    this.head = newHead;
+    return false;
+  }
+
+  /**
+   * insert an element immediately after the node with a value matching the parameter 'val'
+   * @param {*} val
+   * @param {*} newVal
+   * @returns {boolean}
+   * @function insertAfter
+   */
+  insertAfter(val, newVal) {
+    let current = this.head;
+    while(current !== null) {
+      if(current.value === val) {
+        const newNode = new ListNode(newVal);
+        newNode.next = current.next;
+        current.next = newNode;
+        return true;
+      }
+      current = current.next;
+    }
     return false;
   }
 
   /**
    * determine if an element exists in the list (at any position)
-   * @param {*} ele
+   * @param {*} val
    * @returns {boolean}
    * @function includes
    */
-  includes(ele) {
+  includes(val) {
     let current = this.head;
     while(current !== null) {
-      if(current.value === ele) return true;
+      if(current.value === val) return true;
       current = current.next;
     }
     return false;

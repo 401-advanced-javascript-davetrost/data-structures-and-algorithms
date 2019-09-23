@@ -71,19 +71,22 @@ describe('Linked List', () => {
     expect(linkedList.head.next.next.value).toBe(value3);
     expect(linkedList.head.next.next.next.value).toBe(value4);
   });
-
+  
   it('Can insert a node before a node located in the middle of the list', () => {
     expect(linkedList.head.next.value).toBe(value2);
     linkedList.insertBefore(value2, value1p5);
     expect(linkedList.head.next.value).toBe(value1p5);
+    expect(linkedList.head.next.next.value).toBe(value2);
   });
-
+  
   it('Can insert a node before the first node of the list', () => {
     expect(linkedList.head.value).toBe(value1);
     linkedList.insertBefore(value1, value0);
     expect(linkedList.head.value).toBe(value0);
+    expect(linkedList.head.next.value).toBe(value1);
   });
 
+  
   it('Can insert a node after a node located in the middle of the list', () => {
     expect(linkedList.head.next.next.next.next.value).toBe(value3);
     linkedList.insertAfter(value2, value2p5);
