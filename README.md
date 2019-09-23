@@ -52,3 +52,16 @@ Write tests to capture the following cases:
 - insert(): has space efficiency of O(1) and time performance of O(1)
 - includes(): has no space requirements and time performance of O(n)
 - toString(): has no space requirements and time performance of O(n)
+
+
+## [Linked List Insertions](challenges/linkedList/linked-list.js)
+
+Write and test 3 new methods for the Linked List class. 
+1. `.append(value)` adds a new node with the given value to the end of the list
+1. `.insertBefore(value, newVal)` adds a new node with the given newValue immediately before the first found node with value of `value`
+1. `.insertAfter(value, newVal)` adds a new node with the given newValue immediately after the first found node with value of `value`
+
+The stretch goal is to write a Delete method for the Linked List class. `.delete(value)` removes a node from the linked list. The node removed is the first found node with value of `value`.
+
+### Approach & Efficiency
+
