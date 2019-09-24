@@ -153,9 +153,9 @@ class LinkedList {
 
   
   /**
-   * return the element that is 'k' nodes from the end of the List
+   * return the value of the element that is 'k' nodes from the end of the List
    * @param {Integer} k
-   * @returns {ListNode}
+   * @returns {*}
    * @function kthFromEnd
    */
   kthFromEnd(k) {
@@ -163,6 +163,21 @@ class LinkedList {
 
     let current = this.head;
     for(let i = 0; i < this.length - 1 - k; i++) {
+      current = current.next;
+    }
+    return current.value;
+  }
+
+  /**
+   * return the value of the element that is in the middle of the List
+   * @returns {*}
+   * @function getMiddle
+   */
+  getMiddle() {
+    if(this.length <= 0) throw 'Exception';
+
+    let current = this.head;
+    for(let i = 0; i < Math.floor(this.length / 2); i++) {
       current = current.next;
     }
     return current.value;

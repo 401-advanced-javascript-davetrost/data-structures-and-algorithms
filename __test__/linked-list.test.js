@@ -184,4 +184,23 @@ describe('Linked List', () => {
     });
   });
   
+  describe('getMiddle', () => {
+    it('can deal with an empty list', () => {
+      linkedList = new LinkedList();
+      expect(() => linkedList.getMiddle()).toThrow('Exception');
+    });
+    it('can find a value in the middle of a one-element list', () => {
+      linkedList.append(value1);
+      expect(linkedList.getMiddle()).toBe(value1);
+    });
+    it('can find an value in the middle of the list', () => {
+      linkedList.append(value2);
+      linkedList.append(value3);
+      linkedList.append(value4);
+      expect(linkedList.getMiddle()).toBe(value3);
+      linkedList.append(value5);
+      expect(linkedList.getMiddle()).toBe(value3);
+    });
+  });
+  
 });
