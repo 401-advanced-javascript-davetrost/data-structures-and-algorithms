@@ -81,6 +81,7 @@ class LinkedList {
         const newNode = new ListNode(newVal);
         newNode.next = current.next;
         current.next = newNode;
+        if(this.tail === current) this.tail = newNode;
         this.length++;
         return newNode;
       }
