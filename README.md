@@ -57,11 +57,30 @@ Write tests to capture the following cases:
 ## [Linked List Insertions](challenges/linkedList/linked-list.js)
 
 Write and test 3 new methods for the Linked List class. 
-1. `.append(value)` adds a new node with the given value to the end of the list
-1. `.insertBefore(value, newVal)` adds a new node with the given newValue immediately before the first found node with value of `value`
-1. `.insertAfter(value, newVal)` adds a new node with the given newValue immediately after the first found node with value of `value`
+1. `append(value)` adds a new node with the given value to the end of the list
+1. `insertBefore(value, newVal)` adds a new node with the given newValue immediately before the first found node with value of `value`
+1. `insertAfter(value, newVal)` adds a new node with the given newValue immediately after the first found node with value of `value`
 
-The stretch goal is to write a Delete method for the Linked List class. `.delete(value)` removes a node from the linked list. The node removed is the first found node with value of `value`.
+The stretch goal is to write a Delete method for the Linked List class. `delete(value)` removes a node from the linked list. The node removed is the first found node with value of `value`.
 
 ### Approach & Efficiency
 
+- append(): has space efficiency of O(1) and time performance of O(n)
+- insertBefore(): has space efficiency of O(1) and time performance of O(n)
+- insertAfter(): has space efficiency of O(1) and time performance of O(n)
+- delete(): has space efficiency of O(1) and time performance of O(n)
+
+
+## [Linked List Find Kth from End](challenges/linkedList/linked-list.js)
+
+Write a method named `kthFromEnd()` for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k elements from the end of the linked list. Write tests to check the functionality of the method.
+
+Unit Tests
+- [ ] Where k is greater than the length of the linked list
+- [ ] Where k and the length of the list are the same
+- [ ] Where k is not a positive integer
+- [ ] Where the linked list is of a size 1
+- [ ] “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
+Stretch Goal
+- [ ] Implement a method that finds the node at the middle of the Linked List.
