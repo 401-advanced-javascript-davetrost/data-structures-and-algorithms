@@ -151,6 +151,23 @@ class LinkedList {
     return allValues;
   }
 
+  
+  /**
+   * return the element that is 'k' nodes from the end of the List
+   * @param {Integer} k
+   * @returns {ListNode}
+   * @function kthFromEnd
+   */
+  kthFromEnd(k) {
+    if(k < 0 || k >= this.length) throw 'Exception';
+
+    let current = this.head;
+    for(let i = 0; i < this.length - 1 - k; i++) {
+      current = current.next;
+    }
+    return current.value;
+  }
+
 }
 
 module.exports = { LinkedList };

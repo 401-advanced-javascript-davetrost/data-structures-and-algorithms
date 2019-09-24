@@ -160,5 +160,28 @@ describe('Linked List', () => {
     expect(linkedList.tail).toBe(null);
     expect(linkedList.length).toBe(0);
   });
+
+  describe('kthFromEnd', () => {
+    it('can find a value in the middle of a one-element list', () => {
+      linkedList.append(value1);
+      expect(linkedList.kthFromEnd(0)).toBe(value1);
+    });
+    it('can find an value in the middle of the list', () => {
+      linkedList.append(value2);
+      linkedList.append(value3);
+      linkedList.append(value4);
+      expect(linkedList.kthFromEnd(0)).toBe(value4);
+      expect(linkedList.kthFromEnd(2)).toBe(value2);
+    });
+    it('can deal with a k-value greater than the length of the list', () => {
+      expect(() => linkedList.kthFromEnd(4)).toThrow('Exception');
+    });
+    it('can deal with a k-value equal to the length of the list', () => {
+      expect(linkedList.kthFromEnd(3)).toBe(value1);
+    });
+    it('can deal with a negative value for k', () => {
+      expect(() => linkedList.kthFromEnd(-1)).toThrow('Exception');
+    });
+  });
   
 });
