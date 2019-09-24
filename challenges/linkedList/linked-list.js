@@ -6,44 +6,48 @@ const ListNode = require('./list-node');
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
   
   /**
    * insert an element into the list at the head position
    * @param {*} val
+   * @returns {ListNode}
    * @function insert
    */
   insert(val) {
     const newNode = new ListNode(val);
     newNode.next = this.head;
     this.head = newNode;
+    if(this.tail === null) this.tail = newNode;
+
+    this.length++;
     return newNode;
   }
 
   /**
    * append an element at the tail of the list
    * @param {*} val
+   * @returns {ListNode}
    * @function append
    */
   append(val) {
     if(this.head === null) return this.insert(val);
     
-    let current = this.head;
-    while(current.next !== null) {
-      current = current.next;
-    }
     const newNode = new ListNode(val);
-    newNode.next = null;
-    current.next = newNode;
-    return false;
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return newNode;
   }
 
   /**
    * insert an element immediately before the first node with a value matching the parameter 'val'
    * @param {*} val
    * @param {*} newVal
-   * @returns {boolean}
+   * @returns {ListNode}
    * @function insertBefore
    */
   insertBefore(val, newVal) {
@@ -55,18 +59,19 @@ class LinkedList {
         const newNode = new ListNode(newVal);
         newNode.next = current.next;
         current.next = newNode;
-        return true;
+        this.length++;
+        return newNode;
       }
       current = current.next;
     }
-    return false;
+    return null;
   }
 
   /**
    * insert an element immediately after the node with a value matching the parameter 'val'
    * @param {*} val
    * @param {*} newVal
-   * @returns {boolean}
+   * @returns {ListNode}
    * @function insertAfter
    */
   insertAfter(val, newVal) {
@@ -76,34 +81,41 @@ class LinkedList {
         const newNode = new ListNode(newVal);
         newNode.next = current.next;
         current.next = newNode;
-        return true;
+        this.length++;
+        return newNode;
       }
       current = current.next;
     }
-    return false;
+    return null;
   }
 
   /**
    * delete an element from the list. The node to be deleted is the first with a value matching the parameter 'val'
    * @param {*} val
-   * @returns {boolean}
+   * @returns {ListNode}
    * @function delete
    */
   delete(val) {
     if(this.head.value === val) {
+      const deletedNode = this.head;
       this.head = this.head.next === null ? null : this.head.next;
-      return true;
+      this.tail = this.head === null ? null : this.tail;
+      this.length--;
+      return deletedNode;
     }
 
     let current = this.head;
     while(current.next !== null) {
       if(current.next.value === val) {
+        const deletedNode = current.next;
         current.next = current.next.next;
-        return true;
+        if(deletedNode === this.tail) this.tail = current;
+        this.length--;
+        return deletedNode;
       }
       current = current.next;
     }
-    return false;
+    return null;
   }
 
   /**

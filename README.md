@@ -75,12 +75,8 @@ The stretch goal is to write a Delete method for the Linked List class. `delete(
 
 Write a method named `kthFromEnd()` for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k elements from the end of the linked list. Write tests to check the functionality of the method.
 
-Unit Tests
-- [ ] Where k is greater than the length of the linked list
-- [ ] Where k and the length of the list are the same
-- [ ] Where k is not a positive integer
-- [ ] Where the linked list is of a size 1
-- [ ] “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+### Approach & Efficiency
 
-Stretch Goal
-- [ ] Implement a method that finds the node at the middle of the Linked List.
+Adding a length property and a tail property to the linked list class improved the simplicity of the code for kthFromEnd(). It also improved the performance of append()
+- append(): has space efficiency of O(1) and time performance improved from O(n) to **O(1)**
+- kthFromEnd(): has space efficiency of O(1) and time performance of O(n)

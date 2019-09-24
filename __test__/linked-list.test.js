@@ -17,16 +17,19 @@ describe('Linked List', () => {
   it('Can successfully instantiate an empty linked list', () => {
     linkedList = new LinkedList();
     expect(linkedList.head).toBe(null);
+    expect(linkedList.length).toBe(0);
   });
   
   it('Can properly insert into the linked list', () => {
     linkedList.insert(value1);
     expect(linkedList.head.value).toBe(value1);
+    expect(linkedList.length).toBe(1);
   });
   
   it('The head property will properly point to the first node in the linked list', () => {
     linkedList.insert(value2);
     expect(linkedList.head.value).toBe(value2);
+    expect(linkedList.length).toBe(2);
   });
   
   it('Can properly insert multiple nodes into the linked list', () => {
@@ -34,6 +37,7 @@ describe('Linked List', () => {
     expect(linkedList.head.value).toBe(value3);
     expect(linkedList.head.next.value).toBe(value2);
     expect(linkedList.head.next.next.value).toBe(value1);
+    expect(linkedList.length).toBe(3);
   });    
   
   it('Will return true when finding a value within the linked list that exists', () => {
@@ -53,16 +57,20 @@ describe('Linked List', () => {
   it('Can be reset by replacing the reference with a new call to the constructor function', () => {
     linkedList = new LinkedList();
     expect(linkedList.head).toBe(null);
+    expect(linkedList.length).toBe(0);
   });
     
   it('Can append to an empty list', () => {
     linkedList.insert(value1);
     expect(linkedList.head.value).toBe(value1);
+    expect(linkedList.tail.value).toBe(value1);
+    expect(linkedList.length).toBe(1);
   });
 
   it('Can append to the end of the linked list', () => {
     linkedList.append(value2);
-    expect(linkedList.head.next.value).toBe(value2);
+    expect(linkedList.tail.value).toBe(value2);
+    expect(linkedList.length).toBe(2);
   });
 
   it('Can append multiple values to the end of the linked list', () => {
@@ -70,6 +78,7 @@ describe('Linked List', () => {
     linkedList.append(value4);
     expect(linkedList.head.next.next.value).toBe(value3);
     expect(linkedList.head.next.next.next.value).toBe(value4);
+    expect(linkedList.length).toBe(4);
   });
   
   it('Can insert a node before a node located in the middle of the list', () => {
@@ -77,6 +86,7 @@ describe('Linked List', () => {
     linkedList.insertBefore(value2, value1p5);
     expect(linkedList.head.next.value).toBe(value1p5);
     expect(linkedList.head.next.next.value).toBe(value2);
+    expect(linkedList.length).toBe(5);
   });
   
   it('Can insert a node before the first node of the list', () => {
@@ -84,6 +94,7 @@ describe('Linked List', () => {
     linkedList.insertBefore(value1, value0);
     expect(linkedList.head.value).toBe(value0);
     expect(linkedList.head.next.value).toBe(value1);
+    expect(linkedList.length).toBe(6);
   });
 
   
@@ -91,11 +102,13 @@ describe('Linked List', () => {
     expect(linkedList.head.next.next.next.next.value).toBe(value3);
     linkedList.insertAfter(value2, value2p5);
     expect(linkedList.head.next.next.next.next.value).toBe(value2p5);
+    expect(linkedList.length).toBe(7);
   });
 
   it('Can insert a node after the last node', () => {
     linkedList.insertAfter(value4, value5);
     expect(linkedList.head.next.next.next.next.next.next.next.value).toBe(value5);
+    expect(linkedList.length).toBe(8);
   });
   
   it('Can delete a node with the given value', () => {
@@ -105,28 +118,37 @@ describe('Linked List', () => {
     linkedList.delete(value4);
     expect(linkedList.head.next.next.next.next.next.value).toBe(value3);
     expect(linkedList.head.next.next.next.next.next.next.value).toBe(value5);
+    expect(linkedList.length).toBe(7);
   });
   
   it('Can delete the last node', () => {
     expect(linkedList.head.next.next.next.next.next.next.value).toBe(value5);
     linkedList.delete(value5);
     expect(linkedList.head.next.next.next.next.next.next).toBe(null);
+    expect(linkedList.length).toBe(6);
   });
   
   it('Can delete all the nodes', () => {
     expect(linkedList.head.value).toBe(value0);
+    expect(linkedList.length).toBe(6);
     linkedList.delete(value0);
     expect(linkedList.head.value).toBe(value1);
+    expect(linkedList.length).toBe(5);
     linkedList.delete(value1);
     expect(linkedList.head.value).toBe(value1p5);
+    expect(linkedList.length).toBe(4);
     linkedList.delete(value1p5);
     expect(linkedList.head.value).toBe(value2);
+    expect(linkedList.length).toBe(3);
     linkedList.delete(value2);
     expect(linkedList.head.value).toBe(value2p5);
+    expect(linkedList.length).toBe(2);
     linkedList.delete(value2p5);
     expect(linkedList.head.value).toBe(value3);
+    expect(linkedList.length).toBe(1);
     linkedList.delete(value3);
     expect(linkedList.head).toBe(null);
+    expect(linkedList.length).toBe(0);
   });
   
 });
