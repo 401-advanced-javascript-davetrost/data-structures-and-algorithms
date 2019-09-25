@@ -54,6 +54,7 @@ describe('Merge Linked Lists', () => {
   it('Can merge lists where one or both are empty', () => {
     llA = new LinkedList();
     llB = new LinkedList();
+    console.log('test with empty list for A');
     llB.append(value4);
     llB.append(value5);
     llB.append(value6);
@@ -63,6 +64,7 @@ describe('Merge Linked Lists', () => {
     expect(llA.toString()).toBe(`${value4}, ${value5}, ${value6}`);
     llA = new LinkedList();
     llB = new LinkedList();
+    console.log('test with empty lists for both');
     expect(llA.toString()).toBe(``);
     expect(llB.toString()).toBe(``);
     mergeLists(llA, llB);
