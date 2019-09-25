@@ -12,7 +12,7 @@ const value3 = 'three';
 const value4 = 'four';
 const value5 = 'five';
 
-describe('Linked List', () => {
+describe.skip('Linked List', () => {
 
   it('Can successfully instantiate an empty linked list', () => {
     linkedList = new LinkedList();
