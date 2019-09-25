@@ -38,15 +38,6 @@ Create a Node class and a LinkedList class. Upon instantiation, an empty Linked 
 
 Catch and handle any exceptions and return a printed value or operation which cleanly represents the state. Either stop the execution cleanly, or provide the user with clear direction and output.
 
-Write tests to capture the following cases:
-- [ ] Can successfully instantiate an empty linked list
-- [ ] Can properly insert into the linked list
-- [ ] The head property will properly point to the first node in the linked list
-- [ ] Can properly insert multiple nodes into the linked list
-- [ ] Will return true when finding a value within the linked list that exists
-- [ ] Will return false when searching for a value in the linked list that does not exist
-- [ ] Can properly return a collection of all the values that exist in the linked list
-
 ### Approach & Efficiency
 
 - insert(): has space efficiency of O(1) and time performance of O(1)
@@ -80,3 +71,18 @@ Write a method named `kthFromEnd()` for the Linked List class which takes a numb
 Adding a length property and a tail property to the linked list class improved the simplicity of the code for kthFromEnd(). It also improved the performance of append()
 - append(): has space efficiency of O(1) and time performance improved from O(n) to **O(1)**
 - kthFromEnd(): has space efficiency of O(1) and time performance of O(n)
+
+## [Merge Linked Lists](challenges/linkedList/llMerge.js)
+
+The `mergeLists()` function takes two linked lists as arguments. On completion, the two linked lists will be "zippered" together so that the nodes alternate between the two lists. To acheive a space efficiency of O(1), the node pointers will be modified in-place, and this is a destructive operation. The head of the first list argument will be used as the head of the resulting list.
+
+Another function, `mergeAndSortLists()` works in a similar manner, except the output list will be sorted lexically. In order to accomplish this, the incoming lists are required to be sorted.
+
+Tests
+- [ ] Can merge two unsorted lists of equal length
+- [ ] Can merge lists of unequal lengths
+- [ ] Can merge an empty list with another list
+- [ ] Can merge two empty lists
+- [ ] Can merge and sort lists of equal length
+- [ ] Can merge and sort lists of unequal lengths
+- [ ] Can merge and sort lists where one or both are empty
