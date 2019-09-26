@@ -5,26 +5,24 @@ module.exports = {
     let currentB = llB.head;
     let nextA, nextB;
    
-    while(currentA !== null && currentB !== null) {
+    while(currentA && currentB) {
       nextA = currentA.next;
       nextB = currentB.next;
-      if(currentB !== null) currentA.next = currentB;
-      if(nextA !== null) currentB.next = nextA;
+      if(currentB) currentA.next = currentB;
+      if(nextA) currentB.next = nextA;
       currentA = nextA;
       currentB = nextB;
     }
 
-    if(llA.head === null) llA.head = llB.head;
+    if(!llA.head) llA.head = llB.head;
   },
 
   mergeAndSortLists(llA, llB) {
-    if(llA.head === null && llB.head === null) return;
-    
     let currentA = llA.head;
     let currentB = llB.head;
     let nextA, nextB;
     
-    while(currentA !== null && currentB !== null) {
+    while(currentA && currentB) {
       if(currentA.next && currentA.value > currentA.next.value) throw 'Exception: list A was not provided as a sorted list.';
       if(currentB.next && currentB.value > currentB.next.value) throw 'Exception: list B was not provided as a sorted list.';
       
@@ -56,8 +54,8 @@ module.exports = {
       }
     }
     
-    if(llA.head === null) llA.head = llB.head;
-    if(llA.head !== null && llA.head.value > llB.head.value) llA.head = llB.head;
+    if(!llA.head) llA.head = llB.head;
+    if(llA.head && llA.head.value > llB.head.value) llA.head = llB.head;
   },
 
 };

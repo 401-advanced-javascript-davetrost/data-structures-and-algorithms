@@ -21,7 +21,7 @@ class LinkedList {
     const newNode = new ListNode(val);
     newNode.next = this.head;
     this.head = newNode;
-    if(this.tail === null) this.tail = newNode;
+    if(!this.tail) this.tail = newNode;
 
     this.length++;
     return newNode;
@@ -34,7 +34,7 @@ class LinkedList {
    * @function append
    */
   append(val) {
-    if(this.head === null) return this.insert(val);
+    if(!this.head) return this.insert(val);
     
     const newNode = new ListNode(val);
     this.tail.next = newNode;
@@ -54,7 +54,7 @@ class LinkedList {
     if(this.head.value === val) return this.insert(newVal);
 
     let current = this.head;
-    while(current.next !== null) {
+    while(current.next) {
       if(current.next.value === val) {
         const newNode = new ListNode(newVal);
         newNode.next = current.next;
@@ -76,7 +76,7 @@ class LinkedList {
    */
   insertAfter(val, newVal) {
     let current = this.head;
-    while(current !== null) {
+    while(current) {
       if(current.value === val) {
         const newNode = new ListNode(newVal);
         newNode.next = current.next;
@@ -99,14 +99,14 @@ class LinkedList {
   delete(val) {
     if(this.head.value === val) {
       const deletedNode = this.head;
-      this.head = this.head.next === null ? null : this.head.next;
-      this.tail = this.head === null ? null : this.tail;
+      this.head = this.head.next ? this.head.next : null;
+      this.tail = this.head ? this.tail : null;
       this.length--;
       return deletedNode;
     }
 
     let current = this.head;
-    while(current.next !== null) {
+    while(current.next) {
       if(current.next.value === val) {
         const deletedNode = current.next;
         current.next = current.next.next;
@@ -127,7 +127,7 @@ class LinkedList {
    */
   includes(val) {
     let current = this.head;
-    while(current !== null) {
+    while(current) {
       if(current.value === val) return true;
       current = current.next;
     }
@@ -141,10 +141,10 @@ class LinkedList {
    * @function toString
    */
   toString() {
-    if(this.head === null) return '';
+    if(!this.head) return '';
     let allValues = this.head.value;
     let current = this.head.next;
-    while(current !== null) {
+    while(current) {
       allValues += ', ' + current.value;
       current = current.next;
     }

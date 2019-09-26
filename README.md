@@ -77,3 +77,8 @@ Adding a length property and a tail property to the linked list class improved t
 The `mergeLists()` function takes two linked lists as arguments. On completion, the two linked lists will be "zippered" together so that the nodes alternate between the two lists. To acheive a space efficiency of O(1), the node pointers will be modified in-place, and this is a destructive operation. The head of the first list argument will be used as the head of the resulting list.
 
 Another function, `mergeAndSortLists()` works in a similar manner, except the output list will be sorted lexically. In order to accomplish this, the incoming lists are required to be sorted.
+
+### Approach & Efficiency
+
+Both functions have a space efficiency of O(1) and a time performance of O(n)
+
