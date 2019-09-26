@@ -8,8 +8,10 @@ module.exports = {
     while(currentA && currentB) {
       nextA = currentA.next;
       nextB = currentB.next;
-      if(currentB) currentA.next = currentB;
+
+      currentA.next = currentB;
       if(nextA) currentB.next = nextA;
+      
       currentA = nextA;
       currentB = nextB;
     }
@@ -28,6 +30,7 @@ module.exports = {
       
       nextA = currentA.next;
       nextB = currentB.next;
+
       if(!nextA && currentA.value < currentB.value) {
         currentA.next = currentB;
         currentA = nextA;
@@ -52,6 +55,7 @@ module.exports = {
       else {
         currentB = nextB;
       }
+      
     }
     
     if(!llA.head) llA.head = llB.head;
