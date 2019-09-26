@@ -4,12 +4,12 @@ let { LinkedList } = require('../challenges/linkedList/linked-list');
 let { mergeLists, mergeAndSortLists } = require('../challenges/linkedList/ll-merge');
 let llA, llB;
 
-const value1 = 'one';
-const value2 = 'two';
-const value3 = 'three';
-const value4 = 'four';
-const value5 = 'five';
-const value6 = 'six';
+const value1 = '1';
+const value2 = '2';
+const value3 = '3';
+const value4 = '4';
+const value5 = '5';
+const value6 = '6';
 
 describe('Merge Linked Lists', () => {
 
@@ -54,7 +54,6 @@ describe('Merge Linked Lists', () => {
   it('Can merge lists where one or both are empty', () => {
     llA = new LinkedList();
     llB = new LinkedList();
-    console.log('test with empty list for A');
     llB.append(value4);
     llB.append(value5);
     llB.append(value6);
@@ -64,7 +63,6 @@ describe('Merge Linked Lists', () => {
     expect(llA.toString()).toBe(`${value4}, ${value5}, ${value6}`);
     llA = new LinkedList();
     llB = new LinkedList();
-    console.log('test with empty lists for both');
     expect(llA.toString()).toBe(``);
     expect(llB.toString()).toBe(``);
     mergeLists(llA, llB);
@@ -73,7 +71,7 @@ describe('Merge Linked Lists', () => {
 });
 
 
-describe.skip('Merge and Sort Linked Lists', () => {
+describe('Merge and Sort Linked Lists', () => {
   it('Can merge and sort lists of equal length', () => {
     llA = new LinkedList();
     llA.append(value1);
@@ -86,18 +84,18 @@ describe.skip('Merge and Sort Linked Lists', () => {
     expect(llA.toString()).toBe(`${value1}, ${value2}, ${value3}`);
     expect(llB.toString()).toBe(`${value4}, ${value5}, ${value6}`);
     mergeAndSortLists(llA, llB);
-    expect(llA.toString()).toBe(`${value1}, ${value4}, ${value2}, ${value5}, ${value3}, ${value6}`);
+    expect(llA.toString()).toBe(`${value1}, ${value2}, ${value3}, ${value4}, ${value5}, ${value6}`);
   });
 
   it('Can merge and sort lists of un-equal lengths', () => {
     llA = new LinkedList();
     llA.append(value6);
     llB = new LinkedList();
+    llB.append(value1);
     llB.append(value4);
     llB.append(value5);
-    llB.append(value1);
     expect(llA.toString()).toBe(`${value6}`);
-    expect(llB.toString()).toBe(`${value4}, ${value5}, ${value1}`);
+    expect(llB.toString()).toBe(`${value1}, ${value4}, ${value5}`);
     mergeAndSortLists(llA, llB);
     expect(llA.toString()).toBe(`${value1}, ${value4}, ${value5}, ${value6}`);
     llA = new LinkedList();
@@ -130,7 +128,13 @@ describe.skip('Merge and Sort Linked Lists', () => {
     expect(llA.toString()).toBe(``);
   });
 
-  // check:  Can identify situations where the incoming lists are not sorted
+  it('can fail gracefully when  the incoming lists are not sorted', () => {
+    llA = new LinkedList();
+    llB = new LinkedList();
+    llB.append(value4);
+    llB.append(value1);
+    expect(() => mergeAndSortLists(llA, llB).toThrow(expect.matches(/exception/i)));
+  });
 
 });
 
