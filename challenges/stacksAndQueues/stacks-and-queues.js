@@ -28,10 +28,10 @@ class Stack extends LinkedList {
    */
   pop() {
     if(!this.top) throw 'Exception: empty stack has no values to pop';
-
-    const val = this.top.value;
-    this.top = this.top.next;
-    this.head = this.top;
+    
+    const val = this.head.value;
+    this.head = this.head.next;
+    this.top = this.head;
     this.length--;
     return val;
   }
@@ -49,4 +49,58 @@ class Stack extends LinkedList {
 
 }
 
-module.exports = { Stack };
+/**
+ * Queue Data Structure Class implementation
+ */
+class Queue extends LinkedList {
+  constructor() {
+    super();
+    this.front = this.head;
+    this.back = this.tail;
+  }
+  
+  /**
+   * append an element into the queue at the back position
+   * @param {*} val
+   * @returns {ListNode}
+   * @function enqueue
+   */
+  enqueue(val) {
+    const node = this.append(val);
+
+    this.front = this.head;
+    this.back = this.tail;
+    return node;
+  }
+  
+  /**
+   * remove an element from the front position of the stack and return its value
+   * @returns {*}
+   * @function dequeue
+   */
+  dequeue() {
+    if(!this.front) throw 'Exception: empty queue has no values to dequeue';
+
+    const val = this.head.value;
+    this.head = this.head.next;
+    this.length--;
+
+    this.front = this.head;
+    this.back = this.tail;
+    return val;
+  }
+
+  /**
+   * return the value of the element at the front position of the queue
+   * @returns {*}
+   * @function peek
+   */
+  peek() {
+    if(!this.front) throw 'Exception: empty stack has no values to peek';
+
+    return this.front.value;
+  }
+
+}
+
+module.exports = { Stack, Queue };

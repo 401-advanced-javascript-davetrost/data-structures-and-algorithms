@@ -1,16 +1,11 @@
 'use strict';
 
-let { Stack } = require('../challenges/stacksAndQueues/stacks-and-queues');
-let stack;
+let { Stack, Queue } = require('../challenges/stacksAndQueues/stacks-and-queues');
+let stack, queue;
 
-const value0 = 'zero';
 const value1 = 'one';
-const value1p5 = 'one-point-five';
 const value2 = 'two';
-const value2p5 = 'two-point-five';
 const value3 = 'three';
-const value4 = 'four';
-const value5 = 'five';
 
 describe('Stack Data Structure', () => {
 
@@ -45,23 +40,56 @@ describe('Stack Data Structure', () => {
   });
       
   it('Can successfully empty a stack after multiple pops', () => {
-    stack.pop();
+    expect(stack.pop()).toBe(value2);
     expect(stack.toString()).toBe(`${value1}`);
     expect(stack.length).toBe(1);
-    stack.pop();
+    expect(stack.pop()).toBe(value1);
     expect(stack.top).toBe(null);
     expect(stack.length).toBe(0);
   });
   
 });
 
-// describe('Queue Data Structure', () => {
 
-//   Can successfully instantiate an empty queue
-//   Can successfully enqueue into a queue
-//   Can successfully enqueue multiple values into a queue
-//   Can successfully dequeue out of a queue the expected value
-//   Can successfully peek into a queue, seeing the expected value
-//   Can successfully empty a queue after multiple dequeues
+describe('Queue Data Structure', () => {
 
-// });
+  it('Can successfully instantiate an empty queue', () => {
+    queue = new Queue();
+    expect(queue.front).toBe(null);
+    expect(queue.length).toBe(0);
+  });
+  
+  it('Can successfully enqueue onto a queue', () => {
+    queue.enqueue(value1);
+    expect(queue.front.value).toBe(value1);
+    expect(queue.length).toBe(1);
+  });
+  
+  it('Can successfully enqueue multiple values onto a queue', () => {
+    queue.enqueue(value2);
+    queue.enqueue(value3);
+    expect(queue.front.value).toBe(value1);
+    expect(queue.toString()).toBe(`${value1}, ${value2}, ${value3}`);
+    expect(queue.length).toBe(3);
+  });
+  
+  it('Can successfully dequeue from the queue', () => {
+    expect(queue.dequeue()).toBe(value1);
+    expect(queue.toString()).toBe(`${value2}, ${value3}`);
+    expect(queue.length).toBe(2);
+  });
+  
+  it('Can successfully peek the front item on the queue', () => {
+    expect(queue.peek()).toBe(value2);
+  });
+      
+  it('Can successfully empty a queue after multiple dequeues', () => {
+    expect(queue.dequeue()).toBe(value2);
+    expect(queue.toString()).toBe(`${value3}`);
+    expect(queue.length).toBe(1);
+    expect(queue.dequeue()).toBe(value3);
+    expect(queue.front).toBe(null);
+    expect(queue.length).toBe(0);
+  });
+  
+});
