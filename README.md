@@ -82,3 +82,37 @@ Another function, `mergeAndSortLists()` works in a similar manner, except the ou
 
 Both functions have a space efficiency of O(1) and a time performance of O(n)
 
+## [Stacks and Queues](challenges/stacksAndQueues/stacks-and-queues.js)
+
+### The Stack Class
+
+The Stack class has a primary pointer (property) named "top". It creates an empty Stack when instantiated. The Stack class has the following methods:
+- `push` takes any value as an argument and adds a new node with that value to the top of the stack
+- `pop` removes the node from the top of the stack, and returns the node’s value.
+- `peek` returns the value of the node located on top of the stack without removing it from the stack.
+
+### The Queue Class
+
+The Queue class has a primary pointer named "front" that indicates the node at the front of the queue. It creates an empty Queue when instantiated. This class has the following methods:
+- `enqueue` takes any value as an argument and adds a new node with that value to the back of the queue
+- `dequeue` removes the node from the front of the queue, and returns the node’s value.
+- `peek` returns the value of the node located in the front of the queue, without removing it from the queue.
+
+### Approach & Efficiency
+
+All functions have a space efficiency of O(1) and a time performance of O(1)
+
+Write tests to check the following functionality:
+- [ ] Can successfully push onto a stack
+- [ ] Can successfully push multiple values onto a stack
+- [ ] Can successfully pop off the stack
+- [ ] Can successfully empty a stack after multiple pops
+- [ ] Can successfully peek the next item on the stack
+- [ ] Can successfully instantiate an empty stack
+- [ ] Can successfully enqueue into a queue
+- [ ] Can successfully enqueue multiple values into a queue
+- [ ] Can successfully dequeue out of a queue the expected value
+- [ ] Can successfully peek into a queue, seeing the expected value
+- [ ] Can successfully empty a queue after multiple dequeues
+- [ ] Can successfully instantiate an empty queue
+
