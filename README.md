@@ -101,18 +101,3 @@ The Queue class has a primary pointer named "front" that indicates the node at t
 ### Approach & Efficiency
 
 All functions have a space efficiency of O(1) and a time performance of O(1)
-
-Write tests to check the following functionality:
-- [ ] Can successfully push onto a stack
-- [ ] Can successfully push multiple values onto a stack
-- [ ] Can successfully pop off the stack
-- [ ] Can successfully empty a stack after multiple pops
-- [ ] Can successfully peek the next item on the stack
-- [ ] Can successfully instantiate an empty stack
-- [ ] Can successfully enqueue into a queue
-- [ ] Can successfully enqueue multiple values into a queue
-- [ ] Can successfully dequeue out of a queue the expected value
-- [ ] Can successfully peek into a queue, seeing the expected value
-- [ ] Can successfully empty a queue after multiple dequeues
-- [ ] Can successfully instantiate an empty queue
-
