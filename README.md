@@ -101,3 +101,17 @@ The Queue class has a primary pointer named "front" that indicates the node at t
 ### Approach & Efficiency
 
 All functions have a space efficiency of O(1) and a time performance of O(1)
+
+
+## [Queue with Stacks](challenges/queueWithStacks/queue-with-stacks.js)
+
+### The PseudoQueue Class
+
+This PseudoQueue class implements a standard queue interface, but internally utilizes 2 Stack objects. It has the following methods:
+- `enqueue` inserts value into the PseudoQueue, using a first-in, first-out approach.
+- `dequeue` extracts a value from the PseudoQueue, using a first-in, first-out approach.
+
+### Approach & Efficiency
+
+- `enqueue` has time performance of O(1)
+- `dequeue` has worst-case time performance of O(n).
