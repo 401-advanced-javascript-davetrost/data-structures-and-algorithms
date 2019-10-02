@@ -125,3 +125,19 @@ AnimalShelter is a class that holds dogs and cats. The shelter operates FIFO ord
 - `enqueue(animal)` has time performance of O(1)
 - `dequeue(preference)` has worst-case time performance of O(n).
 
+## [Multi Bracket Validation](challenges/multiBracketValidation/multi-bracket-validation)
+
+`multiBracketValidation(input)` takes a string as its only argument and returns a boolean representing whether or not the brackets in the string are balanced. The function considers the following 3 types of brackets:
+- Round Brackets : ()
+- Square Brackets : []
+- Curly Brackets : {}
+
+### Tests
+- `{}`  TRUE
+- `{}(){}`  TRUE
+- `(){}[[]]`  TRUE
+- `()[[Extra Characters]]`  TRUE
+- `{}{Code}[Fellows](())`  TRUE
+- `[({}]`  FALSE
+- `(](`  FALSE
+- `{(})`  FALSE

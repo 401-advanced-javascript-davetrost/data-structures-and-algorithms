@@ -1,0 +1,1 @@
+require('../challenges/multiBracketValidation/multi-bracket-validation');
