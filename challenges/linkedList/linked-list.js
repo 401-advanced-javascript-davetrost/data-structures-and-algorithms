@@ -44,6 +44,21 @@ class LinkedList {
   }
 
   /**
+   * remove an element from the head of the list and return its value
+   * @returns {*}
+   * @function dequeue
+   */
+  dequeue() {
+    if(!this.head) throw 'Exception: empty queue has no values to dequeue';
+
+    const val = this.head.value;
+    this.head = this.head.next;
+    this.length--;
+
+    return val;
+  }
+
+  /**
    * insert an element immediately before the first node with a value matching the parameter 'val'
    * @param {*} val
    * @param {*} newVal
@@ -96,8 +111,9 @@ class LinkedList {
    * @returns {ListNode}
    * @function delete
    */
-  delete(val) {
-    if(this.head.value === val) {
+  delete(val, matcher) {
+    if(!matcher) matcher = (val, target) => val === target;
+    if(matcher(this.head.value, val)) {
       const deletedNode = this.head;
       this.head = this.head.next ? this.head.next : null;
       this.tail = this.head ? this.tail : null;
@@ -107,7 +123,7 @@ class LinkedList {
 
     let current = this.head;
     while(current.next) {
-      if(current.next.value === val) {
+      if(matcher(current.next.value, val)) {
         const deletedNode = current.next;
         current.next = current.next.next;
         if(deletedNode === this.tail) this.tail = current;

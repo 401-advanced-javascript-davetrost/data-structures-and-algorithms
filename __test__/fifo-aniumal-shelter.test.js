@@ -1,45 +1,67 @@
 'use strict';
 
-let { PseudoQueue } = require('../challenges/fifoAnimalShelter/fifo-animal-shelter');
+let AnimalShelter = require('../challenges/fifoAnimalShelter/fifo-animal-shelter');
 let queue;
 
-const value1 = 'one';
-const value2 = 'two';
-const value3 = 'three';
+const value1 = {
+  name: 'one',
+  type: 'dog',
+};
+const value2 = {
+  name: 'two',
+  type: 'dog',
+};
+const value3 = {
+  name: 'three',
+  type: 'cat',
+};
+const value4 = {
+  name: 'four',
+  type: 'cat',
+};
+const value5 = {
+  name: 'five',
+  type: 'dog',
+};
 
-describe('Pseudo-Queue Data Structure', () => {
+describe('Animal Shelter Data Structure', () => {
 
-  it('Can successfully instantiate an empty queue', () => {
-    queue = new PseudoQueue();
-    expect(queue.inStack.top).toBe(null);
-    expect(queue.outStack.top).toBe(null);
+  it('instantiates an empty shelter', () => {
+    queue = new AnimalShelter();
+    expect(queue.queue.head).toBe(null);
   });
   
-  it('Can successfully enqueue onto a queue', () => {
+  it('enqueues into a shelter', () => {
     queue.enqueue(value1);
-    expect(queue.inStack.top.value).toBe(value1);
+    expect(queue.queue.head.value).toEqual(value1);
   });
   
-  it('Can successfully enqueue multiple values onto a queue', () => {
+  it('enqueues multiple values into a shelter', () => {
     queue.enqueue(value2);
-    expect(queue.inStack.top.value).toBe(value2);
     queue.enqueue(value3);
-    expect(queue.inStack.top.value).toBe(value3);
-    expect(queue.toString()).toBe(`${value1}, ${value2}, ${value3}`);
+    queue.enqueue(value4);
+    queue.enqueue(value5);
+
+    expect(queue.queue.head.value).toEqual(value1);
+    expect(queue.queue.head.next.value).toEqual(value2);
+    expect(queue.queue.head.next.next.value).toEqual(value3);
+    expect(queue.queue.head.next.next.next.value).toEqual(value4);
+    expect(queue.queue.head.next.next.next.next.value).toEqual(value5);
   });
   
-  it('Can successfully dequeue from the queue', () => {
-    expect(queue.dequeue()).toBe(value1);
-    expect(queue.toString()).toBe(`${value2}, ${value3}`);
+  it('dequeues an animal from the shelter', () => {
+    expect(queue.dequeue(/*no pref*/)).toEqual(value1);
+  });
+  
+  it('dequeues an animal from the shelter whether that animal is not at the front of the queue or not', () => {
+    expect(queue.dequeue('cat')).toEqual(value3);
+    expect(queue.dequeue('dog')).toEqual(value2);
+    expect(queue.dequeue('dog')).toEqual(value5);
   });
   
   it('Can successfully empty a queue after multiple dequeues', () => {
-    expect(queue.dequeue()).toBe(value2);
-    expect(queue.toString()).toBe(`${value3}`);
-    expect(queue.dequeue()).toBe(value3);
-    expect(queue.toString()).toBe(``);
-    expect(queue.inStack.top).toBe(null);
-    expect(queue.outStack.top).toBe(null);
+    expect(queue.dequeue()).toBe(value4);
+    expect(queue.queue.head).toBe(null);
   });
   
 });

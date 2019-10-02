@@ -1,73 +1,38 @@
-let { Queue } = require('../stacksAndQueues/stacks-and-queues');
+let { LinkedList } = require('../linkedList/linked-list');
 
 /**
- * Pseudo-Queue Data Structure Class implementation
+ * AnimalShelter Data Structure Class implementation
  */
-class PseudoQueue {
+module.exports = class AnimalShelter {
   constructor() {
-    this.inStack = new Stack();
-    this.outStack = new Stack();
+    this.queue = new LinkedList();
   }
   
   /**
-   * append an element into the queue
-   * @param {*} val
+   * insert an animal into the queue
+   * @param {name, type} val
    * @returns {*}
    * @function enqueue
    */
   enqueue(val) {
-    const node = this.inStack.push(val);
+    if(val.type !== 'cat' && val.type !== 'dog') throw 'Exception: inserted animal must have type property of "cat" or "dog"';
+
+    const node = this.queue.append(val);
     return node.value;
   }
   
   /**
    * remove an element from the queue and return its value
+   * @param {string} preference: should be one of: 'cat' or 'dog'
    * @returns {*}
    * @function dequeue
    */
-  dequeue() {
-    if(!this.outStack.top) {
-      if(!this.inStack.top) throw 'Exception: empty queue has no values to dequeue';
+  dequeue(preference) {
+    if(!preference || !(preference === 'cat' || preference === 'dog')) return this.queue.dequeue();
 
-      // pop all inStack items, pushing each one - except the last one - to the outStack
-      let val = this.inStack.pop();
-      while(this.inStack.top) {
-        this.outStack.push(val);
-        val = this.inStack.pop();
-      }
-      return val;
-    }
-
-    return this.outStack.pop();
+    const returnedNode = this.queue.delete(preference, (ele, target) => ele.type === target);
+    return returnedNode ? returnedNode.value : null;
   }
 
-  /**
-   * return a string representing all the values in the Linked List
-   * @returns {string}
-   * @function toString
-   */
-  toString() {
-    let allValues = '';
+};
 
-    let current = this.outStack.head;
-    while(current) {
-      allValues += ', ' + current.value;
-      current = current.next;
-    }
-
-    const recurseBackwards = (current) => {
-      if(current) {
-        return recurseBackwards(current.next) + ', ' + current.value;
-      }
-      else {
-        return '';
-      }
-    };
-    
-    allValues += recurseBackwards(this.inStack.head);
-    return allValues.slice(2);
-  }
-
-}
-
-module.exports = { PseudoQueue };

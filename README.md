@@ -125,11 +125,3 @@ AnimalShelter is a class that holds dogs and cats. The shelter operates FIFO ord
 - `enqueue(animal)` has time performance of O(1)
 - `dequeue(preference)` has worst-case time performance of O(n).
 
-### Tests
-
-- [ ] instantiates an empty shelter
-- [ ] enqueues into a shelter
-- [ ] enqueues multiple values into a shelter
-- [ ] dequeue animals from the shelter
-- [ ] dequeue an animal from the shelter when that animal isn't at the front of the queue
-- [ ] empty a queue after multiple dequeues
