@@ -44,7 +44,6 @@ Catch and handle any exceptions and return a printed value or operation which cl
 - includes(): has no space requirements and time performance of O(n)
 - toString(): has no space requirements and time performance of O(n)
 
-
 ## [Linked List Insertions](challenges/linkedList/linked-list.js)
 
 Write and test 3 new methods for the Linked List class. 
@@ -60,7 +59,6 @@ The stretch goal is to write a Delete method for the Linked List class. `delete(
 - insertBefore(): has space efficiency of O(1) and time performance of O(n)
 - insertAfter(): has space efficiency of O(1) and time performance of O(n)
 - delete(): has space efficiency of O(1) and time performance of O(n)
-
 
 ## [Linked List Find Kth from End](challenges/linkedList/linked-list.js)
 
@@ -102,7 +100,6 @@ The Queue class has a primary pointer named "front" that indicates the node at t
 
 All functions have a space efficiency of O(1) and a time performance of O(1)
 
-
 ## [Queue with Stacks](challenges/queueWithStacks/queue-with-stacks.js)
 
 ### The PseudoQueue Class
@@ -115,3 +112,24 @@ This PseudoQueue class implements a standard queue interface, but internally uti
 
 - `enqueue` has time performance of O(1)
 - `dequeue` has worst-case time performance of O(n).
+
+## [Animal Shelter](challenges/fifoAnimalShelter/fifo-animal-shelter.js)
+
+AnimalShelter is a class that holds dogs and cats. The shelter operates FIFO ordering.
+- `enqueue(animal)` adds an animal to the shelter. The animal must be either a dog or a cat object.
+- `dequeue(preference)` returns either a dog or a cat. If `preference` is not "dog" or "cat", the function returns null.
+  - If a cat or dog isn’t preferred, whichever animal has been waiting in the shelter the longest will be returned
+
+### Approach & Efficiency
+
+- `enqueue(animal)` has time performance of O(1)
+- `dequeue(preference)` has worst-case time performance of O(n).
+
+### Tests
+
+- [ ] instantiates an empty shelter
+- [ ] enqueues into a shelter
+- [ ] enqueues multiple values into a shelter
+- [ ] dequeue animals from the shelter
+- [ ] dequeue an animal from the shelter when that animal isn't at the front of the queue
+- [ ] empty a queue after multiple dequeues
