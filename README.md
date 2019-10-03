@@ -132,12 +132,6 @@ AnimalShelter is a class that holds dogs and cats. The shelter operates FIFO ord
 - Square Brackets : []
 - Curly Brackets : {}
 
-### Tests
-- `{}`  TRUE
-- `{}(){}`  TRUE
-- `(){}[[]]`  TRUE
-- `()[[Extra Characters]]`  TRUE
-- `{}{Code}[Fellows](())`  TRUE
-- `[({}]`  FALSE
-- `(](`  FALSE
-- `{(})`  FALSE
+### Approach & Efficiency
+
+- `multiBracketValidation(input)` has time performance of O(n)
