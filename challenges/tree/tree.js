@@ -60,6 +60,7 @@ function postOrderHelper(current, str) {
 }
 
 function containsHelper(current, value) {
+  if(!current) return false;
   if(value === current.value) return true;  
   return (value < current.value) ? containsHelper(current.left, value) : containsHelper(current.right, value);
 }

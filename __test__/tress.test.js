@@ -31,6 +31,12 @@ describe('Binary Tree', () => {
     expect(binaryTree.preOrder()).toBe(`${valueF} ${valueB} ${valueG} `);
   });
 
+  it('Can tell when a value exists in a collection (or not)', () => {
+    expect(binaryTree.contains(valueB)).toBeTruthy();
+    expect(binaryTree.contains(valueG)).toBeTruthy();
+    expect(binaryTree.contains(valueA)).toBeFalsy();
+  });
+  
   it('Can return a pre-order string of a collection', () => {
     binaryTree.add(valueA);
     binaryTree.add(valueD);
@@ -49,5 +55,4 @@ describe('Binary Tree', () => {
     expect(binaryTree.inOrder()).toBe(`${valueA} ${valueB} ${valueC} ${valueD} ${valueE} ${valueF} ${valueG} ${valueH} ${valueI} `);
   });
 
-  
 });
