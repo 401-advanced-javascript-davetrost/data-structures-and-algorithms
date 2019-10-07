@@ -1,6 +1,6 @@
 # Trees
 
-## [Binary Tree and BST Implementation]()
+## [Binary Tree and BST Implementation](challenges/tree/tree.js)
 The following tree implementations use a Node class to store the node's value, left child and right child.
 
 ### Binary Tree Class
