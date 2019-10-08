@@ -55,4 +55,8 @@ describe('Binary Tree', () => {
     expect(binaryTree.inOrder()).toBe(`${valueA} ${valueB} ${valueC} ${valueD} ${valueE} ${valueF} ${valueG} ${valueH} ${valueI} `);
   });
 
+  it('Can return an breadth-first string from a collection', () => {
+    expect(binaryTree.breadthFirst()).toBe(`${valueF} ${valueB} ${valueG} ${valueA} ${valueD} ${valueI} ${valueC} ${valueE} ${valueH} `);
+  });
+
 });

@@ -1,4 +1,5 @@
 const TreeNode = require('./tree-node');
+const { Queue } = require('../stacksAndQueues/stacks-and-queues');
 
 /**
  * Tree Class implementation
@@ -24,6 +25,11 @@ class Tree {
   postOrder() {
     return postOrderHelper(this.head, '');
   }
+  breadthFirst() {
+    const queue = new Queue();
+    queue.enqueue(this.head);
+    return breadthFirstHelper(queue, '');
+  }
 
   contains(value) {
     return containsHelper(this.head, value);
@@ -40,14 +46,14 @@ function addHelper(current, node) {
   let side = (nodeValue < currentValue) ? 'left' : 'right';
   current[side] ? addHelper(current[side], node) : current[side] = node;
 }
--
+
 function preOrderHelper(current, str) {
   if(!current) return '';
   if(current) str += current.value + ' ';
   if(current.left) str = preOrderHelper(current.left, str);
   if(current.right) str = preOrderHelper(current.right, str);
   return str;
-};
+}
 
 function inOrderHelper(current, str) {
   if(!current) return '';
@@ -69,6 +75,17 @@ function containsHelper(current, value) {
   if(!current) return false;
   if(value === current.value) return true;  
   return (value < current.value) ? containsHelper(current.left, value) : containsHelper(current.right, value);
+}
+
+function breadthFirstHelper(queue, str) {
+  if(!queue.front) return str;
+  
+  const current = queue.dequeue();
+  if(current.left) queue.enqueue(current.left);
+  if(current.right) queue.enqueue(current.right);
+  
+  str += current.value + ' ';
+  return breadthFirstHelper(queue, str);
 }
 
 module.exports = { Tree };

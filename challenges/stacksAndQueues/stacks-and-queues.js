@@ -83,7 +83,9 @@ class Queue extends LinkedList {
 
     const val = this.head.value;
     this.head = this.head.next;
+
     this.length--;
+    if(this.length === 0) this.tail = null;
 
     this.front = this.head;
     this.back = this.tail;
