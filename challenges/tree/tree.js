@@ -39,6 +39,7 @@ function addHelper(current, node) {
 }
 
 function preOrderHelper(current, str) {
+  if(!current) return '';
   if(current) str += current.value + ' ';
   if(current.left) str = preOrderHelper(current.left, str);
   if(current.right) str = preOrderHelper(current.right, str);
@@ -46,6 +47,7 @@ function preOrderHelper(current, str) {
 }
 
 function inOrderHelper(current, str) {
+  if(!current) return '';
   if(current.left) str = inOrderHelper(current.left, str);
   if(current) str += current.value + ' ';
   if(current.right) str = inOrderHelper(current.right, str);
@@ -53,6 +55,7 @@ function inOrderHelper(current, str) {
 }
 
 function postOrderHelper(current, str) {
+  if(!current) return '';
   if(current.left) str = postOrderHelper(current.left, str);
   if(current.right) str = postOrderHelper(current.right, str);
   if(current) str += current.value + ' ';
