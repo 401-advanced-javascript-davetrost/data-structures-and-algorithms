@@ -29,10 +29,5 @@ The function takes a tree as an argument and determines wether or not the value 
 - If the value is divisible by 5, the value becomes “Buzz”
 - If the value is divisible by 3 and 5, the value becomes “FizzBuzz”
 
-### Tests
-- FizzBuzz a tree with 1 numeric node
-- FizzBuzz a tree with 1 non-numeric node (expect an error assertion)
-- FizzBuzz a tree with many nodes of numbers divisible by 3, 5, both, or neither
-
 ### Approach and Efficiency
 - `fizzBuzzTree` has O(n) time efficiency and O(1) space requirements
