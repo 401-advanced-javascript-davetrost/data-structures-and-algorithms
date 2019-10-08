@@ -36,18 +36,18 @@ function addHelper(current, node) {
   
   const nodeValue = Number.isInteger(Number(node.value)) ? Number(node.value) : node.value;
   const currentValue = Number.isInteger(Number(current.value)) ? Number(current.value) : current.value;
-  
+
   let side = (nodeValue < currentValue) ? 'left' : 'right';
   current[side] ? addHelper(current[side], node) : current[side] = node;
 }
-
+-
 function preOrderHelper(current, str) {
   if(!current) return '';
   if(current) str += current.value + ' ';
   if(current.left) str = preOrderHelper(current.left, str);
   if(current.right) str = preOrderHelper(current.right, str);
   return str;
-}
+};
 
 function inOrderHelper(current, str) {
   if(!current) return '';

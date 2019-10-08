@@ -3,11 +3,15 @@
 ## [Binary Tree and BST Implementation](challenges/tree/tree.js)
 The following tree implementations use a Node class to store the node's value, left child and right child.
 
-### Binary Tree Class
-The BinaryTree class contains the following methods
+### Binary Tree Class - Depth First Traversal
+The BinaryTree class contains the following methods for depth-first traversal
 - `preOrder` returns an array of the values, parent then children, left child first
 - `inOrder` returns an array of the values, left children first, followed by the parent and then the right children
 - `postOrder` returns an array of the values, children first, then parent, left child first
+
+### Binary Tree Class - Breadth First Traversal
+The BinaryTree class contains the following method for breadth-first traversal
+- `breadthFirst` takes a Binary Tree as its input, traverses the input tree using a Breadth-first approach and prints every visited node’s value.
 
 ### Binary Search Tree Class
 The BinarySearchTree class contains the following methods
