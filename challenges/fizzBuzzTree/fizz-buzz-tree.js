@@ -1,9 +1,9 @@
 function fizzBuzzTree(tree) {
   preOrderHelper(tree.head, node => {
     const num = +node.value;
-    node.value = (num % 3 === 0) ? 'Fizz' : num;
-    node.value = (num % 5 === 0) ? 'Buzz' : num;
-    node.value = (num % 15 === 0) ? 'FizzBuzz' : num;
+    if (num % 3 === 0) node.value = 'Fizz';
+    if (num % 5 === 0) node.value = 'Buzz';
+    if (num % 15 === 0) node.value = 'FizzBuzz';
   });
 }
 
