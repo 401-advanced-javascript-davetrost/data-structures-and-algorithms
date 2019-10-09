@@ -7,3 +7,5 @@
 ### [Stacks, Queues and other list-related challenges](linked-lists.md)
 
 ### [Trees](trees.md)
+
+#### [N-Ary Trees](n-trees.md)
