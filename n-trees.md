@@ -1,7 +1,7 @@
 # N-Ary Trees
 
 ## [N-Ary Tree Implementation](challenges/nAryTree/n-tree.js)
-This class implementa a "Complete" N-Ary Tree implementation. Among the various flavors of N-Ary Trees, the "complete m-ary tree" is specifically defined as a tree in which each node has 0 to 'N' children _and_ the tree is maximally space efficient. It must be completely filled on every level except for the last level. If the last level is not complete, then all nodes of the tree must be as far left as possible.
+This class implements a "Complete" N-Ary Tree implementation. A "complete m-ary tree" is specifically defined as a tree in which each node has 0 to 'N' children _and_ the tree is maximally space efficient. It must be completely filled on every level except for the last level. If the last level is not complete, then all nodes of the tree must be as far left as possible.
 
 The node class used to implement this tree has a value property and a children property. An array is used to contain the child node references. The array technically has no upper bound because there is no limit to the N-dimension for N-Ary trees.
 
