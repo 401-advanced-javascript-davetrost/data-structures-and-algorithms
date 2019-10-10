@@ -24,9 +24,7 @@ The BinarySearchTree class contains the following methods
 ### Approach and Efficiency
 - `preOrder`, `inOrder` and `postOrder` all have O(n) efficiency
 - `add` and `contains` both have O(log(n)) efficiency
-
-## Stretch Goal: K-Ary Tree
-Create a new branch called k-ary-tree, and, using the resources available to you online, implement a k-ary tree, where each node can have any number of children.
+- `findMaximumValue` has O(h) eficiency where h is the height of the tree
 
 ## [FizzBuzz Tree](challenges/fizzBuzzTree/fizz-buzz-tree.js)
 

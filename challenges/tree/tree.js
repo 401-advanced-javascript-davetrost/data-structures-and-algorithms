@@ -35,6 +35,10 @@ class Tree {
     return containsHelper(this.head, value);
   }
 
+  findMaximumValue() {
+    return maxValueHelper(this.head);
+  }
+
 }
 
 function addHelper(current, node) {
@@ -75,6 +79,12 @@ function containsHelper(current, value) {
   if(!current) return false;
   if(value === current.value) return true;  
   return (value < current.value) ? containsHelper(current.left, value) : containsHelper(current.right, value);
+}
+
+function maxValueHelper(current) {
+  if(!current) return null;
+  if(current.right) return maxValueHelper(current.right);
+  return current.value;
 }
 
 function breadthFirstHelper(queue, str) {

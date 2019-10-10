@@ -12,6 +12,15 @@ const valueF = 'F';
 const valueG = 'G';
 const valueH = 'H';
 const valueI = 'I';
+const value1 = '1';
+const value3 = '3';
+const value8 = '8';
+const value9 = '9';
+const value11 = '11';
+const value15 = '15';
+const value20 = '20';
+const value22 = '22';
+const value25 = '25';
 
 describe('Binary Tree', () => {
 
@@ -57,6 +66,42 @@ describe('Binary Tree', () => {
 
   it('Can return an breadth-first string from a collection', () => {
     expect(binaryTree.breadthFirst()).toBe(`${valueF} ${valueB} ${valueG} ${valueA} ${valueD} ${valueI} ${valueC} ${valueE} ${valueH} `);
+  });
+
+  it('Can find the maximum value in the tree regardless of depth', () => {
+    binaryTree = new Tree();
+    binaryTree.add(value11);
+    expect(binaryTree.findMaximumValue()).toBe(value11);
+    binaryTree.add(value9);
+    expect(binaryTree.findMaximumValue()).toBe(value11);
+    binaryTree.add(value15);
+    expect(binaryTree.findMaximumValue()).toBe(value15);
+    binaryTree.add(value20);
+    expect(binaryTree.findMaximumValue()).toBe(value20);
+    binaryTree.add(value3);
+    expect(binaryTree.findMaximumValue()).toBe(value20);
+    binaryTree.add(value1);
+    expect(binaryTree.findMaximumValue()).toBe(value20);
+    binaryTree.add(value8);
+    expect(binaryTree.findMaximumValue()).toBe(value20);
+    binaryTree.add(value25);
+    expect(binaryTree.findMaximumValue()).toBe(value25);
+    binaryTree.add(value22);
+    expect(binaryTree.findMaximumValue()).toBe(value25);
+  });
+
+  it('Can find the maximum value in the tree regardless of tree balancing', () => {
+    binaryTree = new Tree();
+    binaryTree.add(value25);
+    expect(binaryTree.findMaximumValue()).toBe(value25);
+    binaryTree.add(value9);
+    binaryTree.add(value15);
+    binaryTree.add(value20);
+    binaryTree.add(value3);
+    binaryTree.add(value1);
+    binaryTree.add(value8);
+    binaryTree.add(value22);
+    expect(binaryTree.findMaximumValue()).toBe(value25);
   });
 
 });
