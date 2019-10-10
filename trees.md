@@ -18,6 +18,9 @@ The BinarySearchTree class contains the following methods
 - `add` accepts a value, and adds a new node with that value in the correct location in the binary search tree.
 - `contains` accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
+### Binary Search Tree Methods
+- `findMaximumValue` returns the maximum value stored in the tre, assuming all values stored in the tree are numeric
+
 ### Approach and Efficiency
 - `preOrder`, `inOrder` and `postOrder` all have O(n) efficiency
 - `add` and `contains` both have O(log(n)) efficiency
