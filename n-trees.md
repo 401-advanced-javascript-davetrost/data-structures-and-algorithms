@@ -12,6 +12,7 @@ The NTree class contains the following methods
 - `inOrder` returns an array of the values, left children first, followed by the parent and then the right children. In cases where N is odd (odd number of children per node), the middle child is grouped with the left children.
 - `postOrder` returns an array of the values - children first, then parent
 - `breadthFirst` takes an NTree as its input, traverses the tree using a Breadth-first approach and returns a string containing every visited node’s value.
+- `findMaximumValue` returns the maximum value stored in the tree, assuming all values stored in the tree are numeric
 
 ### Approach and Efficiency
-- `add`, `preOrder`, `inOrder`, `postOrder` and `breadthFirst` all have O(n) efficiency
+- `add`, `preOrder`, `inOrder`, `postOrder`, `breadthFirst` and `findMaximumValue` all have O(n) efficiency

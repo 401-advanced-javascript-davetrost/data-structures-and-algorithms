@@ -13,6 +13,15 @@ const valueG = 'G';
 const valueH = 'H';
 const valueI = 'I';
 const valueJ = 'J';
+const value1 = 1;
+const value3 = 3;
+const value8 = 8;
+const value9 = 9;
+const value11 = 11;
+const value15 = 15;
+const value20 = 20;
+const value22 = 22;
+const value25 = 25;
 
 describe('N-Ary Tree', () => {
 
@@ -75,6 +84,28 @@ describe('N-Ary Tree', () => {
 
   it('Can return an breadth-first string from a tree with N=4', () => {
     expect(nTree.breadthFirst()).toBe(`${valueA} ${valueB} ${valueC} ${valueD} ${valueE} ${valueF} ${valueG} ${valueH} ${valueI} ${valueJ} `);
+  });
+
+  it('Can find the maximum value in the tree regardless of depth', () => {
+    nTree = new NTree();
+    nTree.add(value11);
+    expect(nTree.findMaximumValue()).toBe(value11);
+    nTree.add(value9);
+    expect(nTree.findMaximumValue()).toBe(value11);
+    nTree.add(value15);
+    expect(nTree.findMaximumValue()).toBe(value15);
+    nTree.add(value20);
+    expect(nTree.findMaximumValue()).toBe(value20);
+    nTree.add(value3);
+    expect(nTree.findMaximumValue()).toBe(value20);
+    nTree.add(value1);
+    expect(nTree.findMaximumValue()).toBe(value20);
+    nTree.add(value8);
+    expect(nTree.findMaximumValue()).toBe(value20);
+    nTree.add(value25);
+    expect(nTree.findMaximumValue()).toBe(value25);
+    nTree.add(value22);
+    expect(nTree.findMaximumValue()).toBe(value25);
   });
 
 });

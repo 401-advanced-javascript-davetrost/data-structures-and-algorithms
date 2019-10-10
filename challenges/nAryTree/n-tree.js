@@ -37,6 +37,9 @@ class NTree {
     return breadthFirstHelper(this.n, queue, '');
   }
 
+  findMaximumValue() {
+    return maxValueHelper(this.head);
+  }
 }
 
 function addHelper(n, queue, node) {
@@ -86,6 +89,11 @@ function breadthFirstHelper(n, queue, str) {
   
   str += current.value + ' ';
   return breadthFirstHelper(n, queue, str);
+}
+
+function maxValueHelper(current) {
+  if(!current) return null;
+  return current.children.reduce((max, child) => Math.max(max, maxValueHelper(child)), current.value);
 }
 
 module.exports = { NTree };
