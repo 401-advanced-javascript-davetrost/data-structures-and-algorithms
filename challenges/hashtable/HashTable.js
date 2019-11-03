@@ -10,8 +10,6 @@ const DEFAULT_HASH_FUNCTION = size => key => {
 class HashTable {
   constructor(size = 20, hashAlgorithm = DEFAULT_HASH_FUNCTION) {
     this.arr = new Array(size).fill(0).map(arr => []);
-    console.log(this.arr);
-    
     this.hashAlgorithm = hashAlgorithm(size);
     this.size = size;
   }
