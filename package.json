@@ -4,7 +4,8 @@
   "description": "* [Array reverse]()",
   "main": "index.js",
   "dependencies": {
-    "node": "^12.10.0"
+    "node": "^12.10.0",
+    "prettier": "^1.18.2"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
@@ -22,6 +23,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/401-advanced-javascript-davetrost/data-structures-and-algorithms.git"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "keywords": [],
   "author": "",
