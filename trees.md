@@ -36,3 +36,12 @@ The function takes a tree as an argument and determines wether or not the value 
 
 ### Approach and Efficiency
 - `fizzBuzzTree` has O(n) time efficiency and O(1) space requirements
+
+## [Tree Intersection](challenges/treeIntersection/tree-intersection.js)
+This function takes 2 binary trees as input and returns a set which contains the values that are common to both trees.
+
+### Approach and Efficiency
+- The function iterates over the first tree to get a list of the values which are contained therein. This takes O(n) time.
+- For each value in the first tree, the second tree is queried to see if it also contains the value. This takes O(log(n)) time.
+- When a match is found, the value is added to a set data structure. This takes O(1) time.
+- **Therefore**, the overall efficiency of the function is O(n log(n))
