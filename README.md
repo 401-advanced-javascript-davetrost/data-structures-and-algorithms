@@ -1,15 +1,20 @@
 # data-structures-and-algorithms
 
-## [Array Challenges](array-challenges.md)
+## Arrays and Lists
+- [Array Challenges](array-challenges.md)
+- [Linked Lists](linked-lists.md)
+- [Stacks, Queues and other list-related challenges](linked-lists.md)
 
-## [Linked Lists](linked-lists.md)
+## Trees
+- [Trees](trees.md)
+- [N-Ary Trees](n-trees.md)
+- [Tree Intersection](trees.md)
 
-## [Stacks, Queues and other list-related challenges](linked-lists.md)
+## Sorting Algorithms
+- [Insertion Sort](insertion-sort.md)
+- [Merge Sort](merge-sort.md)
+- [Quick Sort](quick-sort.md)
 
-## [Trees](trees.md)
-
-### [N-Ary Trees](n-trees.md)
-
-## [Hash Table](hashtable.md)
-
-### [Repeated Word](hashtable.md)
+## Hash Tables
+- [Hash Table](hashtable.md)
+- [Repeated Word](hashtable.md)
