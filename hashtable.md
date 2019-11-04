@@ -11,3 +11,10 @@ The class contains the following methods:
 
 ### Approach and Efficiency
 - all functions are intended to approach O(1) efficiency, but this particular hash table implementation is not dynamically scalable in its memory allocation, and the size must be provided upon instantiation of the object.
+
+## [Repeated Word Function](challenges/repeatedWord/repeated-word.js)
+This function uses the Hash Table class to return the first word that occurs more than once in a provided string. 
+
+### Approach and Efficiency
+- The approach for this function is to split the text into an array of words. Traverse the array and put each word into an instance of HashTable. If the word already existed in the HashTable before insertion, stop traversing and return the repeated word.
+- The efficiency of this approach is O(n), under the assumption that HashTable's efficiency approaches constant time.

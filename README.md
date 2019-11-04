@@ -11,3 +11,5 @@
 ### [N-Ary Trees](n-trees.md)
 
 ## [Hash Table](hashtable.md)
+
+### [Repeated Word](hashtable.md)
