@@ -18,3 +18,10 @@ This function uses the Hash Table class to return the first word that occurs mor
 ### Approach and Efficiency
 - The approach for this function is to split the text into an array of words. Traverse the array and put each word into an instance of HashTable. If the word already existed in the HashTable before insertion, stop traversing and return the repeated word.
 - The efficiency of this approach is O(n), under the assumption that HashTable's efficiency approaches constant time.
+
+## LEFT/RIGHT Join
+- `leftJoin()` is a function that LEFT JOINs two hashmaps into a single data structure. 
+  - The first parameter is a hashmap that has word strings as keys word strings as values.
+  - The second parameter is a hashmap that has overlapping word strings as keys, and different word strings as values. 
+  - This function combines the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic. LEFT JOIN means all the values in the first hashmap are returned, and, if values exist for a matching key in the “right” hashmap, they are appended to the result value. If no values exist at the matching key in the right hashmap, `null` is appended to the result value.
+- `rightJoin()` is a function that utilized code re-use to attain the RIGHT JOIN functionality, when given two hash maps as input.
