@@ -39,6 +39,13 @@ class HashTable {
     return (item) ? item[1] : null;
   }
 
+  forEachHash(fn) {
+    for(let i = 0; i < this.size; i++) {
+      const bucket = this.arr[i];
+      bucket.forEach(ele => fn(ele));
+    }
+  }
+
 }
 
 module.exports = { HashTable };
