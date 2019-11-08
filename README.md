@@ -19,3 +19,6 @@
 - [Hash Table](hashtable.md)
 - [Repeated Word](hashtable.md)
 - [Left/Right Join](hashtable.md)
+
+## Graphs
+- [Graph class](graphs.md)
