@@ -4,10 +4,6 @@ class GraphNode {
     this.neighbors = [];
   }
 
-  getValue() {
-    return this.value;
-  }
-
   toString() {
     const valueString = `${this.value}`;
     let neighborsString = '';
@@ -35,9 +31,11 @@ class Graph {
   }
 
   addNode(value) {
-    if(this.adjacencyListObj[value]) return;
+    if(this.adjacencyListObj[value]) return null;
 
+    this.size++;
     this.adjacencyListObj[value] = new GraphNode(value);
+    return this.adjacencyListObj[value];
   }
 
   addEdge(node1, node2, weight = 0) {
@@ -51,11 +49,17 @@ class Graph {
     return this.adjacencyListObj[value] || null;
   }
 
+  getSize() {
+    return this.size;
+  }
+
   getNeighbors(node) {
     return node.getNeighbors();
   }
 
   getNodes() {
+    if(this.size === 0) return null;
+
     return Object.values(this.adjacencyListObj);
   }
 
