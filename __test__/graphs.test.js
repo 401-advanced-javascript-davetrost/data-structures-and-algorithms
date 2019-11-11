@@ -89,4 +89,29 @@ describe('Graph data structure', () => {
     `);
   });
 
+  it('traverses a graph using the breadth-first method', () => {
+    graph = new Graph();
+    const nodeA = graph.addNode(valueA);
+    const nodeB = graph.addNode(valueB);
+    const nodeC = graph.addNode(valueC);
+    const nodeD = graph.addNode(valueD);
+    const nodeE = graph.addNode(valueE);
+    const nodeF = graph.addNode(valueF);
+
+    graph.addEdge(nodeC, nodeF);
+    expect(graph.breadthFirst(nodeC)).toBe(' C F');
+
+    graph.addEdge(nodeC, nodeB);
+    graph.addEdge(nodeC, nodeA);
+    expect(graph.breadthFirst(nodeC)).toBe(' C F B A');
+    graph.addEdge(nodeA, nodeB);
+    expect(graph.breadthFirst(nodeC)).toBe(' C F B A');
+
+    graph.addEdge(nodeA, nodeD);
+    graph.addEdge(nodeD, nodeE);
+    expect(graph.breadthFirst(nodeC)).toBe(' C F B A D E');
+    graph.addEdge(nodeD, nodeC);
+    expect(graph.breadthFirst(nodeC)).toBe(' C F B A D E');
+  });
+
 });

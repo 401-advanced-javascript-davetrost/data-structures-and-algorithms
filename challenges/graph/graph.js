@@ -1,3 +1,6 @@
+const { Queue } = require('../stacksAndQueues/stacks-and-queues');
+const { HashTable } = require('../hashtable/HashTable');
+
 class GraphNode {
   constructor(value) {
     this.value = value;
@@ -68,6 +71,35 @@ class Graph {
       .reduce((str, node) => `${str}\n${node.toString()}`, '');
   }
 
+  breadthFirst(node, fn = GraphNode.toString) {
+    const nodesToVisit = new Queue();
+    const visitedNodes = new HashTable();
+    nodesToVisit.enqueue(node.value);
+    return this.breadthFirstHelper(nodesToVisit, visitedNodes, '');
+  }
+
+  breadthFirstHelper(nodesToVisit, visitedNodes, breadthFirstValuesStr) {
+    while(nodesToVisit.front) {
+      const currentVal = nodesToVisit.dequeue();
+      
+      if(!visitedNodes.includes(currentVal)) {
+        this.getNeighbors(this.getNode(currentVal)).forEach(neighbor => {
+          if(!visitedNodes.includes(neighbor.node.value)) {
+            nodesToVisit.enqueue(neighbor.node.value);
+          }
+        });
+
+        breadthFirstValuesStr += ' ' + currentVal;
+        visitedNodes.set(currentVal, true);
+        return this.breadthFirstHelper(nodesToVisit, visitedNodes, breadthFirstValuesStr);
+      }
+    }
+
+    return breadthFirstValuesStr;
+  }
+
 } 
+
+
 
 module.exports = { Graph };
