@@ -1,0 +1,24 @@
+const { Graph } = require('./challenges/graph/graph');
+const valueA = 'A';
+const valueB = 'B';
+const valueC = 'C';
+const valueD = 'D';
+const valueE = 'E';
+const valueF = 'F';
+let graph = new Graph();
+const nodeA = graph.addNode(valueA);
+const nodeB = graph.addNode(valueB);
+const nodeC = graph.addNode(valueC);
+const nodeD = graph.addNode(valueD);
+const nodeE = graph.addNode(valueE);
+const nodeF = graph.addNode(valueF);
+graph.addEdge(nodeC, nodeF);
+graph.addEdge(nodeC, nodeB);
+graph.addEdge(nodeC, nodeA);
+graph.addEdge(nodeA, nodeB);
+graph.addEdge(nodeA, nodeD);
+graph.addEdge(nodeD, nodeE);
+graph.addEdge(nodeD, nodeC);
+
+console.log(graph.toString());
+console.log(graph.breadthFirst(nodeC));
