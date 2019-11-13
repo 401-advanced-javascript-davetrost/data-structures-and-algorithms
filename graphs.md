@@ -20,3 +20,11 @@ The method `breadthFirst()` uses a recursive approach to graph traversal. There 
 - Queue class contains `enqueue` and `dequeue` methods to keep track of which graph nodes will be next in the recursive cycle
 
 The efficiency of `breadthFirst` starts at O(n), because all `n` nodes of the graph need to be traversed. At each node, the HashTable and Queue methods that are used have O(1) efficiency. So, the overall efficiency of the algorithm simplifies to O(n).
+
+## [Get Edges Challenge](challenges/getEdges/get-edges.js)
+- `getEdges()` takes in a graph and an array of city names. Upon completion, the function returns whether or not the full trip is possible with direct flights (true/false), and how much it would cost (sum of graph edge weights or $0 if the trip is not possible).
+
+### Approach and Efficiency
+The top level of the algorithm has to loop through the provided array. At each node of the array, the node in the graph which contains the city listed in the array must be found. The first node only has to exist. Subsequent nodes must exist in the neighbors list of the previously located node. For each node that is located in the neighbors list, the weight from the neighbors list will be added to a top-level accumulator variable. If one of the array values is not found in the neighbors list, the function will immediately return false and $0 for the trip price. Otherwise, the function returns true and returns the value of the accumulator.
+
+The graph functions that will be used by the getEdges algorithm have O(1) efficiency. However, the array provided to the function could have a large number of elements. So, the eficiency of `getEdges()` is O(k) where k is the length of the array of city names.
