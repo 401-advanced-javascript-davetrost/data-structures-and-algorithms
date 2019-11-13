@@ -1,24 +1,35 @@
 const { Graph } = require('./challenges/graph/graph');
-const valueA = 'A';
-const valueB = 'B';
-const valueC = 'C';
-const valueD = 'D';
-const valueE = 'E';
-const valueF = 'F';
+const { getEdges } = require('./challenges/getEdges/get-edges');
+
+const valueA = 'Arendelle';
+const valueP = 'Pandora';
+const valueMe = 'Metroville';
+const valueMo = 'Monstropolis';
+const valueNa = 'Narnia';
+const valueNb = 'Naboo';
+
 let graph = new Graph();
 const nodeA = graph.addNode(valueA);
-const nodeB = graph.addNode(valueB);
-const nodeC = graph.addNode(valueC);
-const nodeD = graph.addNode(valueD);
-const nodeE = graph.addNode(valueE);
-const nodeF = graph.addNode(valueF);
-graph.addEdge(nodeC, nodeF);
-graph.addEdge(nodeC, nodeB);
-graph.addEdge(nodeC, nodeA);
-graph.addEdge(nodeA, nodeB);
-graph.addEdge(nodeA, nodeD);
-graph.addEdge(nodeD, nodeE);
-graph.addEdge(nodeD, nodeC);
+const nodeP = graph.addNode(valueP);
+const nodeMe = graph.addNode(valueMe);
+const nodeMo = graph.addNode(valueMo);
+const nodeNa = graph.addNode(valueNa);
+const nodeNb = graph.addNode(valueNb);
+graph.addEdge(nodeA, nodeP, 150);
+graph.addEdge(nodeA, nodeMe, 99);
+graph.addEdge(nodeA, nodeMo, 42);
+
+graph.addEdge(nodeMe, nodeP, 82);
+graph.addEdge(nodeMe, nodeMo, 105);
+graph.addEdge(nodeMe, nodeNa, 37);
+graph.addEdge(nodeMe, nodeNb, 26);
+
+graph.addEdge(nodeNb, nodeNa, 250);
+graph.addEdge(nodeNb, nodeMo, 73);
 
 console.log(graph.toString());
-console.log(graph.breadthFirst(nodeC));
+
+console.log( getEdges(graph, ['Metroville', 'Pandora']) );
+console.log( getEdges(graph, ['Arendelle', 'Monstropolis', 'Naboo']) );
+console.log( getEdges(graph, ['Naboo', 'Pandora']) );
+console.log( getEdges(graph, ['Narnia', 'Naboo', 'Arendelle']) );
