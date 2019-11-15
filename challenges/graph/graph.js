@@ -71,13 +71,12 @@ class Graph {
       .reduce((str, node) => `${str}\n${node.toString()}`, '');
   }
 
-  breadthFirst(node, fn = GraphNode.toString) {
+  breadthFirst(node) {
     const nodesToVisit = new Queue();
     const visitedNodes = new HashTable();
     nodesToVisit.enqueue(node.value);
     return this.breadthFirstHelper(nodesToVisit, visitedNodes, '');
   }
-
   breadthFirstHelper(nodesToVisit, visitedNodes, breadthFirstValuesStr) {
     while(nodesToVisit.front) {
       const currentVal = nodesToVisit.dequeue();
@@ -94,8 +93,25 @@ class Graph {
         return this.breadthFirstHelper(nodesToVisit, visitedNodes, breadthFirstValuesStr);
       }
     }
-
     return breadthFirstValuesStr;
+  }
+
+  depthFirst(node) {
+    const visitedNodes = new HashTable();
+    return this.depthFirstHelper(node, visitedNodes, '');
+  }
+  depthFirstHelper(currentNode, visitedNodes, depthFirstValuesStr) {
+    const currentVal = currentNode.value;
+    if(!visitedNodes.includes(currentVal)) {
+
+      depthFirstValuesStr += ' ' + currentVal;
+      visitedNodes.set(currentVal, true);
+      
+      this.getNeighbors(currentNode).forEach(({ node }) => {
+        depthFirstValuesStr = this.depthFirstHelper(node, visitedNodes, depthFirstValuesStr);
+      });
+    }
+    return depthFirstValuesStr;
   }
 
 } 

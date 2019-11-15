@@ -114,4 +114,28 @@ describe('Graph data structure', () => {
     expect(graph.breadthFirst(nodeC)).toBe(' C F B A D E');
   });
 
+  it('traverses a graph using the depth-first method', () => {
+    graph = new Graph();
+    const nodeA = graph.addNode(valueA);
+    const nodeB = graph.addNode(valueB);
+    const nodeC = graph.addNode(valueC);
+    const nodeD = graph.addNode(valueD);
+    const nodeE = graph.addNode(valueE);
+    const nodeF = graph.addNode(valueF);
+
+    graph.addEdge(nodeC, nodeF);
+    expect(graph.depthFirst(nodeC)).toBe(' C F');
+
+    graph.addEdge(nodeC, nodeB);
+    graph.addEdge(nodeB, nodeA);
+    expect(graph.depthFirst(nodeC)).toBe(' C F B A');
+    graph.addEdge(nodeC, nodeB);
+    expect(graph.depthFirst(nodeC)).toBe(' C F B A');
+
+    graph.addEdge(nodeA, nodeD);
+    expect(graph.depthFirst(nodeC)).toBe(' C F B A D');
+    graph.addEdge(nodeF, nodeE);
+    expect(graph.depthFirst(nodeC)).toBe(' C F E B A D');
+  });
+
 });
