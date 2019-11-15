@@ -19,7 +19,11 @@ The method `breadthFirst()` uses a recursive approach to graph traversal. There 
 - HashTable class contains the `set` methods to track which node values have already been visited in the traversal, and the `includes` method to check if a node has already been traversed before calling the recursive algorithm on it again.
 - Queue class contains `enqueue` and `dequeue` methods to keep track of which graph nodes will be next in the recursive cycle
 
-The efficiency of `breadthFirst` starts at O(n), because all `n` nodes of the graph need to be traversed. At each node, the HashTable and Queue methods that are used have O(1) efficiency. So, the overall efficiency of the algorithm simplifies to O(n).
+The method `depthFirst()` uses a recursive approach to graph traversal. Two structures are needed to accomplish this task:
+- Graph class contains methods to get a node and its neighbors
+- HashTable class contains `set` (to track already visited node values) and `includes` (to check if a node has been already visited).
+
+The efficiency of `breadthFirst` starts at O(n), because all `n` nodes of the graph need to be traversed. At each node, the HashTable and Queue methods that are used have O(1) efficiency. So, the overall efficiency of the algorithm simplifies to O(n). The efficiency of `depthFirst` is O(n), following the same logic and without the queue.
 
 ## [Get Edges Challenge](challenges/getEdges/get-edges.js)
 - `getEdges()` takes in a graph and an array of city names. Upon completion, the function returns whether or not the full trip is possible with direct flights (true/false), and how much it would cost (sum of graph edge weights or $0 if the trip is not possible).

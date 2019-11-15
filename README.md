@@ -23,3 +23,4 @@
 ## Graphs
 - [Graph class](graphs.md)
 - [Breadth First Graph Traversal](graphs.md)
+- [Depth First Graph Traversal](graphs.md)
